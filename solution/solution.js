@@ -8,7 +8,7 @@ var countChars = function(input) {
   return counts;
 };
 
-var huffmanCode = function(input) {
+var makeHuffmanTree = function(input) {
   var charCounts = countChars(input);
   var pq = new PriorityQueue();
   for (var c in charCounts) {
@@ -40,15 +40,16 @@ var encodeString = function(input, huffman) {
   var output = "";
   for (var i = 0; i < input.length; i++) {
     var currentNode = huffman;
+    var nextCharacter = input[i];
     while (currentNode.val.length > 1) {
-      if (currentNode.left.val.indexOf(c) !== -1) {
+      if (currentNode.left.val.indexOf(nextCharacter) !== -1) {
         currentNode = currentNode.left;
         output += "0";
-      } else if (currentNode.right.val.indexOf(c) !== -1) {
+      } else if (currentNode.right.val.indexOf(nextCharacter) !== -1) {
         currentNode = currentNode.right;
         output += "1";
       } else {
-        throw new Error("Character " + c + "is not in this Huffman tree.");
+        throw new Error("Character " + nextCharacter + " is not in this Huffman tree.");
       }
     }
   }
@@ -59,7 +60,7 @@ var decodeString = function(input, huffman) {
   var output = "";
   var currNode = huffman;
   for (var currIdx = 0; currIdx < input.length; currIdx++) {
-    var currBit = input[currIdx]; 
+    var currBit = input[currIdx];
     if (currBit === "0") {
       currNode = currNode.left;
     } else if (currBit === "1") {
