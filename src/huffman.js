@@ -1,13 +1,13 @@
 // // Given a Huffman tree and a string, encode that string into a new string
 // // consisting only of 1s and 0s, using the code given by the tree.
 var encodeString = function(input, huffmanTree) {
-  return "";
+  return "Not implemented yet!";
 };
 
 // // Given a Huffman tree and a string of 1s and 0s, decode that string into
 // // a new, human-readable string, using the code given by the tree.
 var decodeString = function(input, huffmanTree) {
-  return "";
+  return "Not implemented yet!";
 };
 
 // Given a corpus of text, return a Huffman tree that represents the
@@ -22,6 +22,7 @@ var decodeString = function(input, huffmanTree) {
 // You may also use the `Tree` class that is provided in the file `misc.js`
 // Some corpuses are included as the variables `lorumIpsum` and `declaration`.
 var makeHuffmanTree = function(corpus) {
+  alert("You must implement makeHuffmanTree first!")
   return new Tree();
 };
 
